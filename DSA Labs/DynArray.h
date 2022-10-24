@@ -61,9 +61,9 @@ class DynArray {
 
 	// Data members
 	// NOTE: All values set to -1 for unit test purposes
-	Type* mArray = reinterpret_cast<Type*>(-1);
-	size_t mSize = -1;
-	size_t mCapacity = -1;
+	Type* mArray = reinterpret_cast<Type*>(0);
+	size_t mSize = 0;
+	size_t mCapacity = 0;
 
 public:
 
@@ -75,13 +75,22 @@ public:
 	// Note: Do not allocate any memory if the _startingCap is 0
 	DynArray(size_t _startingCap = 0) {
 		// TODO: Implement this method
-
+		if (_startingCap > 0){
+			mArray = new Type* [_startingCap];
+			mSize = 0;
+			mCapacity = _startingCap;
+		}
+		else{
+			mSize = 0;
+			mCapacity = 0;
+		}
 	};
 
 	// Destructor
 	//		Cleans up all dynamically allocated memory
 	~DynArray() {
 		// TODO: Implement this method
+		delete mArray;
 
 	}
 
