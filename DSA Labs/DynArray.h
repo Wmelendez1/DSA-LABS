@@ -128,6 +128,8 @@ public:
 	// Return: The item at the specified index (by reference)
 	Type& operator[](size_t _index) {
 		// TODO: Implement this method
+		
+		return &mArray[_index];
 	
 	}
 
